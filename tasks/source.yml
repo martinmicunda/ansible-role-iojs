@@ -1,0 +1,44 @@
+---
+- name: Check existance
+  stat: path=/tmp/{{ iojs_filename }}.tar.xz
+  register: iojs
+  tags: iojs
+
+- name: Download package
+  get_url:
+    url=https://iojs.org/dist/v{{ iojs_version }}/{{ iojs_filename }}.tar.xz
+    dest=/tmp/{{ iojs_filename }}.tar.xz
+  when: not iojs.stat.exists
+  tags: iojs
+
+- name: Unpack
+  unarchive:
+    src=/tmp/{{ iojs_filename }}.tar.xz
+    dest=/usr/local/lib
+    copy=no
+  tags: iojs
+
+- name: Clean symlinks
+  file:
+    path=/usr/local/bin/{{ item }}
+    state=absent
+  with_items:
+    - node
+    - iojs
+    - npm
+    - node-gyp
+  sudo: yes
+  tags: iojs
+
+- name: Create symlinks
+  file:
+    path=/usr/local/bin/{{ item }}
+    state=link
+    src=/usr/local/lib/{{ iojs_filename }}/bin/{{ item }}
+  with_items:
+    - node
+    - iojs
+    - npm
+  sudo: yes
+  tags: iojs
+

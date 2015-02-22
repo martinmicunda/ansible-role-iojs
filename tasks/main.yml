@@ -1,0 +1,11 @@
+---
+- name: Check if the io.js version is already installed
+  command: iojs --version
+  ignore_errors: yes
+  register: io_version
+  changed_when: io_version.rc != 0 or io_version.stdout != "v{{ iojs_version }}"
+  tags: iojs
+
+- include: source.yml
+  when: io_version.changed
+  tags: iojs
