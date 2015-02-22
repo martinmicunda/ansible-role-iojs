@@ -1,7 +1,7 @@
 Ansible io.js Role
 =========
 
-[![Build Status](https://secure.travis-ci.org/martinmicunda/ansible-role-iojs.png)](http://travis-ci.org/martinmicunda/ansible-role-iojs) [![Ansible Galaxy](http://img.shields.io/badge/galaxy-martinmicunda.iojs-blue.svg)](https://galaxy.ansible.com/list#/roles/1700) [![Platforms](http://img.shields.io/badge/platforms-ubuntu-orange.svg)](#)
+[![Build Status](https://secure.travis-ci.org/martinmicunda/ansible-role-iojs.png)](http://travis-ci.org/martinmicunda/ansible-role-iojs) [![Ansible Galaxy](http://img.shields.io/badge/galaxy-martinmicunda.iojs-blue.svg)](https://galaxy.ansible.com/list#/roles/2938) [![Platforms](http://img.shields.io/badge/platforms-ubuntu-orange.svg)](#)
 
 An ansible role for installing io.js and NPM.
 
