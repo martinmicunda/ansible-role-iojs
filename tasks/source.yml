@@ -12,6 +12,7 @@
   tags: iojs
 
 - name: Unpack
+  sudo: yes
   unarchive:
     src=/tmp/{{ iojs_filename }}.tar.xz
     dest=/usr/local/lib
